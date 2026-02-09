@@ -1,0 +1,21 @@
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+    title: 'Apple - Home',
+    description: 'Welcome to Apple',
+};
+
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en">
+            <body className="m-0 p-0 font-[-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,sans-serif] bg-white antialiased">
+                {children}
+            </body>
+        </html>
+    );
+}

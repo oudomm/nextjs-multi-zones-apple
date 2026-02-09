@@ -1,0 +1,32 @@
+<svg width="260" height="400" viewBox="0 0 260 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top band -->
+  <path d="M90 30 Q90 0 130 0 Q170 0 170 30 L170 95 Q170 100 165 100 L95 100 Q90 100 90 95Z" fill="#e2e2e7" stroke="#d2d2d7" stroke-width="1"/>
+  <!-- Watch body -->
+  <rect x="60" y="100" width="140" height="180" rx="38" fill="#e2e2e7" stroke="#d2d2d7" stroke-width="1.5"/>
+  <!-- Screen bezel -->
+  <rect x="70" y="112" width="120" height="156" rx="30" fill="#1c1c1e"/>
+  <!-- Screen -->
+  <rect x="74" y="116" width="112" height="148" rx="27" fill="#0a0a0a"/>
+  <!-- Screen content gradient -->
+  <defs>
+    <linearGradient id="watchFace" x1="130" y1="116" x2="130" y2="264" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#43e97b"/>
+      <stop offset="1" stop-color="#38f9d7"/>
+    </linearGradient>
+  </defs>
+  <rect x="74" y="116" width="112" height="148" rx="27" fill="url(#watchFace)" opacity="0.85"/>
+  <!-- Time -->
+  <text x="130" y="200" font-family="-apple-system, SF Pro, Helvetica, sans-serif" font-size="40" font-weight="600" fill="white" text-anchor="middle">10:09</text>
+  <!-- Date -->
+  <text x="130" y="222" font-family="-apple-system, SF Pro, Helvetica, sans-serif" font-size="13" font-weight="500" fill="rgba(255,255,255,0.8)" text-anchor="middle">SUNDAY 9</text>
+  <!-- Digital Crown -->
+  <rect x="200" y="158" width="9" height="32" rx="4.5" fill="#d2d2d7" stroke="#c7c7cc" stroke-width="0.5"/>
+  <!-- Side button -->
+  <rect x="200" y="200" width="9" height="20" rx="4" fill="#d2d2d7" stroke="#c7c7cc" stroke-width="0.5"/>
+  <!-- Bottom band -->
+  <path d="M90 280 Q90 285 95 285 L165 285 Q170 285 170 280 L170 370 Q170 400 130 400 Q90 400 90 370Z" fill="#e2e2e7" stroke="#d2d2d7" stroke-width="1"/>
+  <!-- Band holes hint -->
+  <circle cx="130" cy="320" r="4" fill="#d2d2d7"/>
+  <circle cx="130" cy="340" r="4" fill="#d2d2d7"/>
+  <circle cx="130" cy="360" r="4" fill="#d2d2d7"/>
+</svg>

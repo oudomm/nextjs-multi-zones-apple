@@ -1,0 +1,38 @@
+<svg width="460" height="360" viewBox="0 0 460 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left AirPod -->
+  <g transform="translate(100, 20)">
+    <!-- Stem -->
+    <path d="M42 115 Q40 118 38 125 L34 195 Q33 210 44 210 L56 210 Q67 210 66 195 L62 125 Q60 118 58 115Z" fill="#e8e8ed" stroke="#d2d2d7" stroke-width="1"/>
+    <!-- Stem bottom -->
+    <ellipse cx="50" cy="210" rx="12" ry="4" fill="#d2d2d7"/>
+    <!-- Head -->
+    <ellipse cx="50" cy="82" rx="42" ry="50" fill="#e8e8ed" stroke="#d2d2d7" stroke-width="1"/>
+    <!-- Speaker mesh -->
+    <ellipse cx="50" cy="72" rx="16" ry="20" fill="#d2d2d7"/>
+    <!-- Inner mesh -->
+    <ellipse cx="50" cy="72" rx="10" ry="14" fill="#c4c4c9"/>
+    <!-- Sensor dot -->
+    <circle cx="50" cy="100" r="3" fill="#d2d2d7"/>
+  </g>
+  <!-- Right AirPod -->
+  <g transform="translate(240, 20)">
+    <!-- Stem -->
+    <path d="M42 115 Q40 118 38 125 L34 195 Q33 210 44 210 L56 210 Q67 210 66 195 L62 125 Q60 118 58 115Z" fill="#e8e8ed" stroke="#d2d2d7" stroke-width="1"/>
+    <!-- Stem bottom -->
+    <ellipse cx="50" cy="210" rx="12" ry="4" fill="#d2d2d7"/>
+    <!-- Head -->
+    <ellipse cx="50" cy="82" rx="42" ry="50" fill="#e8e8ed" stroke="#d2d2d7" stroke-width="1"/>
+    <!-- Speaker mesh -->
+    <ellipse cx="50" cy="72" rx="16" ry="20" fill="#d2d2d7"/>
+    <!-- Inner mesh -->
+    <ellipse cx="50" cy="72" rx="10" ry="14" fill="#c4c4c9"/>
+    <!-- Sensor dot -->
+    <circle cx="50" cy="100" r="3" fill="#d2d2d7"/>
+  </g>
+  <!-- Case -->
+  <rect x="130" y="260" width="200" height="75" rx="28" fill="#e8e8ed" stroke="#d2d2d7" stroke-width="1"/>
+  <!-- Case hinge line -->
+  <line x1="142" y1="290" x2="318" y2="290" stroke="#d2d2d7" stroke-width="1"/>
+  <!-- Case LED -->
+  <circle cx="230" cy="278" r="3" fill="#d2d2d7"/>
+</svg>
