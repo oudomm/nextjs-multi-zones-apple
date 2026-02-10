@@ -1,3 +1,4 @@
+// packages/shared-state/src/global-state.ts
 /**
  * Global State Manager for Multi-Zone Architecture
  * Manages cart and user data across all zones using localStorage

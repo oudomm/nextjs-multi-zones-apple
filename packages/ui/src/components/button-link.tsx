@@ -1,16 +1,16 @@
 import React from 'react';
 
-type Variant = 'primary' | 'secondary' | 'outline' | 'blue' | 'blueOutline';
+type Variant = 'primary' | 'secondary' | 'outline' | 'blue' | 'blueOutline' | 'white';
 type Size = 'sm' | 'md' | 'lg';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     variant?: Variant;
     size?: Size;
 }
 
 const base =
-    'cursor-pointer inline-flex items-center justify-center rounded-full font-medium transition select-none ' +
-    'focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:opacity-50 disabled:pointer-events-none';
+    'inline-flex items-center justify-center rounded-full font-medium transition select-none ' +
+    'focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20';
 
 const sizeClasses: Record<Size, string> = {
     sm: 'h-9 px-4 text-sm',
@@ -24,16 +24,17 @@ const variantClasses: Record<Variant, string> = {
     outline: 'border border-gray-300 text-black hover:bg-gray-100',
     blue: 'bg-[#0076DF] text-white hover:opacity-95',
     blueOutline: 'border border-[#0076DF] text-[#0076DF] hover:bg-[#0076DF] hover:text-white',
+    white: 'bg-white text-black'
 };
 
-export const Button: React.FC<ButtonProps> = ({
-    variant = 'primary',
+export const ButtonLink: React.FC<ButtonLinkProps> = ({
+    variant = 'blue',
     size = 'md',
     className = '',
     ...props
 }) => {
     return (
-        <button
+        <a
             className={`${base} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
             {...props}
         />

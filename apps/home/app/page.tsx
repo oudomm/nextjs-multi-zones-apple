@@ -1,6 +1,6 @@
 'use client';
 
-import { Navigation } from '@repo/ui';
+import { AppleLogo, Button, ButtonLink, Navigation } from '@repo/ui';
 import { useMemo } from 'react';
 import Image from 'next/image';
 
@@ -10,6 +10,7 @@ export default function HomePage() {
     () => [
       { label: 'Home', href: '/' },
       { label: 'Store', href: '/store' },
+      { label: 'iPhone', href: '/iphone' },
       { label: 'Mac', href: '/mac' },
     ],
     []
@@ -19,26 +20,48 @@ export default function HomePage() {
     <div className="min-h-screen bg-white text-[#1d1d1f]">
       <Navigation items={navItems} currentZone="/" />
 
-      {/* Hero — iPhone */}
-      <section className="bg-white text-center overflow-hidden border-b border-[#d2d2d7]">
-        <div className="pt-14 pb-0 max-w-[980px] mx-auto">
-          <h2 className="text-[17px] font-normal text-[#6e6e73]">iPhone 17 Pro Max</h2>
-          <h1 className="mt-2 text-[56px] md:text-[96px] font-semibold tracking-[-0.015em] leading-[1.05] text-[#1d1d1f]">
-            Hello, Apple Intelligence.
-          </h1>
+      {/* Hero */}
+      <section className="bg-pink-50 text-center overflow-hidden border-[#d2d2d7] mb-3 max-h-150">
+        <div className="pt-14 pb-0 max-w-xl mx-auto">
+          <h2 className="mt-2 text-3xl md:text-7xl font-semibold tracking-[-0.015em] leading-[1.05] text-[#1d1d1f]">
+            Valentine’s Day
+          </h2>
+          <h3 className="text-2xl md:text-3xl font-normal text-[#1d1d1f]">There’s still time to get gifts they’ll love.</h3>
           <div className="mt-5 flex items-center justify-center gap-5">
-            <a href="/store" className="text-[#06c] text-[21px] hover:underline">
-              Learn more &gt;
-            </a>
-            <a href="/store" className="text-[#06c] text-[21px] hover:underline">
-              Buy &gt;
-            </a>
+            <ButtonLink href='/store' variant='blue' size='lg'>Shop</ButtonLink>
           </div>
           <div className="mt-8 flex justify-center">
-            <div className="relative w-full h-[420px] md:h-[520px]">
+            <div className="relative w-full h-80 md:h-95">
               <Image
-                src="/images/iphone-17-pro-max.png"
-                alt="iPhone 17 Pro Max"
+                src="/images/apple-products.png"
+                alt="Apple Products"
+                fill
+                className="object-contain"
+                priority
+                unoptimized
+              />
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* iPhone */}
+      <section className="bg-[#f5f5f7] text-center overflow-hidden border-[#d2d2d7] mb-3 max-h-150">
+        <div className="pt-14 pb-0 max-w-[980px] mx-auto">
+          <h2 className="mt-2 text-3xl md:text-7xl font-semibold tracking-[-0.015em] leading-[1.05] text-[#1d1d1f]">
+            iPhone
+          </h2>
+          <h3 className="text-2xl md:text-3xl font-normal text-[#1d1d1f]">Say hello to the latest generation of iPhone.</h3>
+          <div className="mt-5 flex items-center justify-center gap-5">
+            <ButtonLink href='/mac' variant='blue' size='lg'>Learn more</ButtonLink>
+            <ButtonLink href='/store' variant='blueOutline' size='lg'>Shop iPhone</ButtonLink>
+          </div>
+          <div className="mt-8 flex justify-center">
+            <div className="relative w-full h-80 md:h-95">
+              <Image
+                src="/images/iphone-17-series.webp"
+                alt="iPhone 17 Series"
                 fill
                 className="object-contain"
                 priority
@@ -49,28 +72,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MacBook Pro */}
-      <section className="bg-[#f5f5f7] text-center overflow-hidden">
-        <div className="pt-14 pb-0 max-w-[980px] mx-auto">
-          <h2 className="text-[17px] font-semibold text-[#1d1d1f]">MacBook Pro</h2>
-          <h3 className="mt-2 text-[48px] md:text-[64px] font-semibold tracking-[-0.015em] leading-[1.05] text-[#1d1d1f]">
-            Lean. Mean. M5 machine.
-          </h3>
+      {/* iWatch */}
+      <section className="bg-[#f5f5f7] text-center overflow-hidden border-[#d2d2d7] mb-3 max-h-150">
+        <div className="pt-14 pb-0 max-w-3xl mx-auto">
+          <div className='flex justify-center items-center'>
+            <AppleLogo className='h-11 w-11' />
+            <h2 className="mt-2 text-3xl md:text-5xl font-semibold tracking-[-0.015em] leading-[1.05] text-[#1d1d1f] uppercase">
+              Watch <span className='font-normal'>Series 11 </span>
+            </h2>
+          </div>
+
+          <h3 className="text-xl md:text-2xl font-normal text-[#1d1d1f]">Say hello to the latest generation of iPhone.</h3>
           <div className="mt-5 flex items-center justify-center gap-5">
-            <a href="/store" className="text-[#06c] text-[21px] hover:underline">
-              Learn more &gt;
-            </a>
-            <a href="/store" className="text-[#06c] text-[21px] hover:underline">
-              Buy &gt;
-            </a>
+            <ButtonLink href='/mac' variant='blue' size='lg'>Learn more</ButtonLink>
+            <ButtonLink href='/store' variant='blueOutline' size='lg'>Shop iPhone</ButtonLink>
           </div>
           <div className="mt-8 flex justify-center">
-            <div className="relative w-full h-[360px] md:h-[420px]">
+            <div className="relative w-full h-80 md:h-95">
               <Image
-                src="/images/macbook-pro.webp"
-                alt="MacBook Pro"
+                src="/images/watch-series-11.png"
+                alt="Apple Watch Series 11"
                 fill
                 className="object-contain"
+                priority
               />
             </div>
 
@@ -79,28 +103,34 @@ export default function HomePage() {
       </section>
 
       {/* Two-up tiles */}
-      <section className="bg-white px-3 pt-3">
+      <section className="bg-white px-3 mb-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-[1440px] mx-auto">
           {/* AirPods Pro */}
-          <div className="bg-[#f5f5f7] rounded-3xl text-center overflow-hidden group">
+          <div className="bg-black text-center overflow-hidden group max-h-150">
 
             <div className="pt-12 px-8">
-              <h2 className="text-[28px] md:text-[40px] font-semibold tracking-[-0.015em] text-[#1d1d1f]">
-                AirPods Pro 3
-              </h2>
-              <h3 className="mt-1 text-[21px] text-[#6e6e73]">
-                Hearing Aid Feature. A world first.
+              <div className='flex justify-center items-center'>
+                <AppleLogo className='h-9 w-9 text-white' />
+                <h2 className="mt-2 text-2xl md:text-4xl font-semibold tracking-[-0.015em] leading-[1.05] text-white uppercase">
+                  Watch
+                </h2>
+              </div>
+
+              <h3 className="mt-1 text-[21px] text-white flex flex-col">
+                <span>The new Black Unity band.</span>
+                <span>Inspired by the power of connection.</span>
               </h3>
+
               <div className="mt-4 flex items-center justify-center gap-5 text-[17px]">
-                <a href="/store" className="text-[#06c] hover:underline">Learn more &gt;</a>
-                <a href="/store" className="text-[#06c] hover:underline">Buy &gt;</a>
+                <ButtonLink href='/mac' variant='white' size='sm'>Shop</ButtonLink>
+
               </div>
             </div>
             <div className="mt-4 flex justify-center pb-8">
-              <div className="relative w-full h-[260px] md:h-[320px]">
+              <div className="relative w-full h-80 md:h-95">
                 <Image
-                  src="/images/airpods-pro-3.png"
-                  alt="AirPods Pro 3"
+                  src="/images/watch-band.webp"
+                  alt="Apple Watch Band"
                   fill
                   className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                 />
@@ -110,25 +140,25 @@ export default function HomePage() {
           </div>
 
           {/* Apple Watch */}
-          <div className="bg-[#f5f5f7] rounded-3xl text-center overflow-hidden group">
+          <div className="bg-linear-to-b from-[#ADDCEE] to-[#F1F5F6] text-center overflow-hidden group max-h-150">
 
             <div className="pt-12 px-8">
               <h2 className="text-[28px] md:text-[40px] font-semibold tracking-[-0.015em] text-[#1d1d1f]">
-                Apple Watch Series 10
+                iPad Air
               </h2>
               <h3 className="mt-1 text-[21px] text-[#6e6e73]">
                 Thinnest ever. Biggest display.
               </h3>
               <div className="mt-4 flex items-center justify-center gap-5 text-[17px]">
-                <a href="/store" className="text-[#06c] hover:underline">Learn more &gt;</a>
-                <a href="/store" className="text-[#06c] hover:underline">Buy &gt;</a>
+                <ButtonLink href='/mac' variant='blue' size='sm'>Learn more</ButtonLink>
+                <ButtonLink href='/store' variant='blueOutline' size='sm'>Buy</ButtonLink>
               </div>
             </div>
             <div className="mt-4 flex justify-center pb-8">
-              <div className="relative w-full h-[260px] md:h-[320px]">
+              <div className="relative w-full h-80 md:h-95">
                 <Image
-                  src="/images/apple-watch-11.png"
-                  alt="Apple Watch Series 10"
+                  src="/images/ipad-air.png"
+                  alt="iPad Air"
                   fill
                   className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                 />
@@ -136,46 +166,64 @@ export default function HomePage() {
 
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Architecture section */}
-      <section className="bg-white px-3 pt-3 pb-3">
-        <div className="max-w-[1440px] mx-auto bg-[#f5f5f7] rounded-3xl px-8 md:px-14 py-14">
-          <div className="max-w-[980px] mx-auto">
-            <h3 className="text-[32px] md:text-[40px] font-semibold tracking-[-0.015em] text-[#1d1d1f]">
-              Multi-Zone Architecture.
-            </h3>
-            <p className="mt-3 text-[17px] text-[#6e6e73] leading-[1.47] max-w-[600px]">
-              Each section of this site is its own Next.js app. The home app
-              proxies requests via rewrites. Shared packages ensure one
-              consistent experience.
-            </p>
+          {/* MacBook Pro 14*/}
+          <div className="bg-black text-center overflow-hidden group max-h-150">
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="rounded-2xl bg-white p-6 border border-[#d2d2d7]">
-                <div className="text-[15px] text-[#6e6e73]">Home zone</div>
-                <div className="mt-1 text-[21px] font-semibold text-[#1d1d1f]">:3000</div>
-                <div className="mt-3 text-[15px] text-[#6e6e73]">
-                  Main entry point. Rewrites to other zones.
-                </div>
-              </div>
-              <div className="rounded-2xl bg-white p-6 border border-[#d2d2d7]">
-                <div className="text-[15px] text-[#6e6e73]">Store zone</div>
-                <div className="mt-1 text-[21px] font-semibold text-[#1d1d1f]">:3001</div>
-                <div className="mt-3 text-[15px] text-[#6e6e73]">
-                  basePath: /store
-                </div>
-              </div>
-              <div className="rounded-2xl bg-white p-6 border border-[#d2d2d7]">
-                <div className="text-[15px] text-[#6e6e73]">Mac zone</div>
-                <div className="mt-1 text-[21px] font-semibold text-[#1d1d1f]">:3002</div>
-                <div className="mt-3 text-[15px] text-[#6e6e73]">
-                  basePath: /mac
-                </div>
+            <div className="pt-12 px-8">
+              <h2 className="text-[28px] md:text-[40px] font-semibold tracking-[-0.015em] text-white">
+                MacBook Pro 14"
+              </h2>
+              <h3 className="mt-1 text-[21px] text-white">
+                Supercharged by M5.
+              </h3>
+              <div className="mt-4 flex items-center justify-center gap-5 text-[17px]">
+                <ButtonLink href='/mac' variant='blue' size='sm'>Learn more</ButtonLink>
+                <ButtonLink href='/store' variant='blueOutline' size='sm'>Buy</ButtonLink>
               </div>
             </div>
+            <div className="mt-12 flex justify-center pb-8">
+              <div className="relative w-full h-60 md:h-70">
+                <Image
+                  src="/images/macbook-pro-14.png"
+                  alt="MacBook Pro 14"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+
+            </div>
           </div>
+
+          {/* AirPod Pro 3 */}
+          <div className="bg-[#F5F5F7] text-center overflow-hidden group max-h-150">
+
+            <div className="pt-12 px-8">
+              <h2 className="text-[28px] md:text-[40px] font-semibold tracking-[-0.015em] text-[#1d1d1f]">
+                AirPod Pro 3
+              </h2>
+              <h3 className="mt-1 text-[21px] text-black flex flex-col">
+                <span>The world’s best in-ear </span>
+                <span>Active Noise Cancellation.</span>
+              </h3>
+              <div className="mt-4 flex items-center justify-center gap-5 text-[17px]">
+                <ButtonLink href='/mac' variant='blue' size='sm'>Learn more</ButtonLink>
+                <ButtonLink href='/store' variant='blueOutline' size='sm'>Buy</ButtonLink>
+              </div>
+            </div>
+            <div className="mt-12 flex justify-center pb-8">
+              <div className="relative w-full h-60 md:h-70">
+                <Image
+                  src="/images/airpod-pro-3.webp"
+                  alt="AirPod Pro 3"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </section>
 

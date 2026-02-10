@@ -1,4 +1,11 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import type { GlobalState } from '@repo/shared-state';
+import { getGlobalState, subscribeToStateChanges } from '@repo/shared-state';
+import { uiEvents } from '@repo/shared-state';
+import { AppleLogo } from '../icons/AppleLogo';
+import { BagIcon } from '../icons/BagIcon';
 
 interface NavItem {
     label: string;
@@ -11,29 +18,39 @@ interface NavigationProps {
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ items, currentZone }) => {
+    const [cartCount, setCartCount] = useState(0);
+
+    useEffect(() => {
+        // init
+        const s = getGlobalState();
+        setCartCount(s.cart.reduce((sum, i) => sum + i.quantity, 0));
+
+        // subscribe
+        const unsubscribe = subscribeToStateChanges((newState: GlobalState) => {
+            setCartCount(newState.cart.reduce((sum, i) => sum + i.quantity, 0));
+        });
+
+        return unsubscribe;
+    }, []);
+
     return (
-        <nav className="sticky top-0 z-[1000] bg-[rgba(251,251,253,0.8)] backdrop-blur-xl border-b border-[#d2d2d7]">
-            <div className="max-w-[980px] mx-auto h-11 flex items-center justify-between px-4 md:px-2">
-                {/* Apple logo */}
-                <a href="/" className="text-[#1d1d1f] hover:opacity-70 transition-opacity" aria-label="Apple">
-                    <svg height="44" viewBox="0 0 14 44" width="14" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m13.0729 17.6825a3.61 3.61 0 0 0 -1.7502 3.0365 3.5132 3.5132 0 0 0 2.1369 3.2223 8.394 8.394 0 0 1 -1.0952 2.2592c-.6817.9877-1.3889 1.9753-2.4981 1.9753s-1.374-.6363-2.562-.6363c-1.1627 0-1.5728.6489-2.5845.6489s-1.7183-.9498-2.4982-2.076a10.5765 10.5765 0 0 1 -1.6641-5.6482 4.9693 4.9693 0 0 1 2.311-4.3 3.8343 3.8343 0 0 1 2.0494-.7754 4.4491 4.4491 0 0 0 1.7378.6615 4.1317 4.1317 0 0 0 1.6242-.5763 3.9435 3.9435 0 0 1 2.2476-.7 3.9931 3.9931 0 0 1 3.2589 1.8114zm-3.7286-3.3259a3.5652 3.5652 0 0 0 .8834-2.5725 .0634.0634 0 0 0 -.0762-.0446 3.7178 3.7178 0 0 0 -2.4308 1.2363 3.4629 3.4629 0 0 0 -.924 2.4773.0569.0569 0 0 0 .0634.0508 3.3894 3.3894 0 0 0 2.4842-1.1473z" fill="currentColor" />
-                    </svg>
+        <nav className="sticky top-0 z-1000 backdrop-blur-md bg-white/70">
+            <div className="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between">
+                {/* Left: Apple mark */}
+                <a href="/" className="text-lg font-medium tracking-tight text-black">
+                    <AppleLogo className='h-4 w-4' />
                 </a>
 
-                {/* Center nav items */}
-                <ul className="flex items-center gap-7 list-none m-0 p-0">
+                {/* Center: links */}
+                <ul className="flex items-center gap-8 text-sm">
                     {items.map((item) => {
                         const active = currentZone === item.href;
                         return (
                             <li key={item.href}>
                                 <a
                                     href={item.href}
-                                    className={`text-xs tracking-[.008em] no-underline transition-opacity hover:opacity-70 ${
-                                        active
-                                            ? 'text-[#1d1d1f] font-medium'
-                                            : 'text-[#1d1d1f]'
-                                    }`}
+                                    className={`transition-colors ${active ? 'text-black' : 'text-gray-600 hover:text-black'
+                                        }`}
                                 >
                                     {item.label}
                                 </a>
@@ -42,12 +59,22 @@ export const Navigation: React.FC<NavigationProps> = ({ items, currentZone }) =>
                     })}
                 </ul>
 
-                {/* Bag icon */}
-                <a href="/store" className="text-[#1d1d1f] hover:opacity-70 transition-opacity" aria-label="Shopping Bag">
-                    <svg height="44" viewBox="0 0 14 44" width="14" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m11.3535 16.0283h-1.0205a3.4229 3.4229 0 0 0 -3.333-2.9648 3.4229 3.4229 0 0 0 -3.333 2.9648h-1.02a2.1184 2.1184 0 0 0 -2.117 2.1162v7.7155a2.1186 2.1186 0 0 0 2.1162 2.1167h8.707a2.1186 2.1186 0 0 0 2.1168-2.1167v-7.7155a2.1184 2.1184 0 0 0 -2.1165-2.1162zm-4.3535-1.8652a2.3169 2.3169 0 0 1 2.2222 1.8652h-4.4444a2.3169 2.3169 0 0 1 2.2222-1.8652zm5.37 11.6969a1.0182 1.0182 0 0 1 -1.0166 1.0171h-8.7072a1.0182 1.0182 0 0 1 -1.0166-1.0171v-7.7155a1.0178 1.0178 0 0 1 1.0166-1.0166h8.707a1.0178 1.0178 0 0 1 1.0168 1.0166z" fill="currentColor" />
-                    </svg>
-                </a>
+                {/* Right: Bag */}
+                <button
+                    type="button"
+                    onClick={() => uiEvents.openCart()}
+                    className="relative inline-flex items-center justify-center h-9 w-9 rounded-full hover:bg-gray-100 transition"
+                    aria-label="Shopping bag"
+                    title="Bag"
+                >
+                    <span className="text-base"><BagIcon className='h-12 w-12' /></span>
+
+                    {cartCount > 0 && (
+                        <span className="absolute bottom-1 right-1 min-w-4 h-4 rounded-full bg-black text-white text-[9px] inline-flex items-center justify-center">
+                            {cartCount}
+                        </span>
+                    )}
+                </button>
             </div>
         </nav>
     );

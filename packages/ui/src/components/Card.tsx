@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from './Button';
 
 interface CardProps {
     title: string;
@@ -42,15 +43,15 @@ export const Card: React.FC<CardProps> = ({
                         </span>
 
                         {onAddToCart && (
-                            <button
+                            <Button variant='blue'
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     onAddToCart();
                                 }}
-                                className="h-9 px-4 rounded-full bg-black text-white text-sm font-medium hover:opacity-90 transition"
+
                             >
                                 Add to bag
-                            </button>
+                            </Button>
                         )}
                     </div>
                 )}

@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     const store = process.env.STORE_URL ?? 'http://localhost:3001';
     const mac = process.env.MAC_URL ?? 'http://localhost:3002';
+    const iphone = process.env.IPHONE_URL ?? 'http://localhost:3003';
 
     return {
       beforeFiles: [
@@ -28,6 +29,12 @@ const nextConfig: NextConfig = {
         { source: '/mac/:path*', destination: `${mac}/mac/:path*` },
         // Mac assets
         { source: '/mac-static/:path*', destination: `${mac}/mac-static/:path*` },
+
+        // iPhone pages
+        { source: '/iphone', destination: `${iphone}/iphone`},
+        { source: '/iphone/:path*', destination: `${iphone}/iphone/:path*`},
+        // iPhone assets
+        {source: '/iphone-static/:path*', destination: `${iphone}/iphone-static/:path*`}
       ],
     };
   },
