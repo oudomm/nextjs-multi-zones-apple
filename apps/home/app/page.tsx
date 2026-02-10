@@ -3,6 +3,7 @@
 import { AppleLogo, Button, ButtonLink, Navigation } from '@repo/ui';
 import { useMemo } from 'react';
 import Image from 'next/image';
+import iphone17Series from '@repo/ui/assets/images/iphone-17-series.webp'
 
 export default function HomePage() {
 
@@ -60,7 +61,7 @@ export default function HomePage() {
           <div className="mt-8 flex justify-center">
             <div className="relative w-full h-80 md:h-95">
               <Image
-                src="/images/iphone-17-series.webp"
+                src={iphone17Series}
                 alt="iPhone 17 Series"
                 fill
                 className="object-contain"
