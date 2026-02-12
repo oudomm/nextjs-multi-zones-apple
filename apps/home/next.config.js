@@ -4,12 +4,6 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
 
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'store.storeimages.cdn-apple.com' },
-    ],
-  },
-
   async rewrites() {
     const store = process.env.STORE_URL ?? 'http://localhost:3001';
     const mac = process.env.MAC_URL ?? 'http://localhost:3003';
