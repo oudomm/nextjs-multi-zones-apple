@@ -1,3 +1,4 @@
+// packages/shared-state/src/ui-events.ts
 export const OPEN_CART_EVENT = 'open-cart-drawer';
 
 export const uiEvents = {
